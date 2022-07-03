@@ -1,0 +1,21 @@
+@import "../variable.scss";
+
+.tos {
+    width: fit-content;
+    margin: auto;
+    padding-block: 10%;
+    padding-inline: $mrgi;
+
+    h1 {
+        padding-top: 12vh;
+    }
+    
+    article {
+        padding-bottom: 2vw;
+
+        p {
+            max-width: 70ch;
+        }
+    }
+    
+}

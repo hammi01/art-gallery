@@ -1,0 +1,74 @@
+
+@import "../styles/variable.scss";
+
+.modal {
+    position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 4;
+    
+    @include glass;
+    
+    .wrapper {
+        position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+        padding: $mrgb $mrgi;
+        display: flex;
+        
+        &>div {
+            // border: 1px dashed black;
+            position: relative;
+            margin: auto;
+        }
+
+        .close {
+            position: absolute; top: 0; right: 0;
+
+            z-index: 2;
+            transform: translateX(50%) translateY(-50%);
+
+        }
+
+        .menu {
+            width: 75%;
+            padding-top: 2rem;
+
+            .entry {
+                @include fontSizeXl;
+                width: fit-content;
+    
+                .menutitle {
+                    font-size: .5em;
+                }
+                .menupara {
+                    font-family: montserrat,system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    font-size: .2em;
+                    opacity: .8;
+
+                    
+                }
+            }
+        }
+
+        .vid {
+            width: 100%;
+            max-width: $desk;
+            
+            .vidwrapper {
+                position: relative;
+                width: 100%;
+                padding-top: 62.5%;
+                
+                background-color: lighten($dark, 5%);
+                outline: 5px solid $lght;
+
+                video {
+                    position: absolute; top: 0; left: 0;
+                    width: 100%; height: 100%;
+                    object-fit: cover;
+
+                    border-radius: inherit;
+                }
+            }
+        }
+
+    }
+}
+

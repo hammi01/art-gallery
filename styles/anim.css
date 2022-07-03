@@ -1,0 +1,58 @@
+
+
+.fade_modal-enter {
+    opacity: 0;
+}
+.fade_modal-enter-active {
+    opacity: 1;
+}
+.fade_modal-exit {
+    opacity: 1;
+}
+.fade_modal-exit-active {
+    opacity: 0;
+}
+.fade_modal-enter-active,
+.fade_modal-exit-active{
+    transition: opacity 500ms;
+}
+
+
+.bkg-enter {
+    opacity: 0;
+}
+.bkg-enter-active {
+    opacity: 1;
+}
+.bkg-exit {
+    opacity: 1;
+}
+.bkg-exit-active {
+    opacity: 0;
+}
+.bkg-enter-active,
+.bkg-exit-active{
+    transition: all 500ms;
+}
+
+
+.text-enter {
+    opacity: 0;
+    transform: translateX(40%);
+}
+.text-enter-active {
+    opacity: 1;
+    transform: translateX(0%);
+}
+.text-exit {
+    opacity: 1;
+    transform: translateX(0%);
+}
+.text-exit-active {
+    opacity: 0;
+    transform: translateX(-40%);
+}
+.text-enter-active,
+.text-exit-active{
+   transition: all 300ms;
+}

@@ -1,0 +1,26 @@
+
+@import "../styles/variable.scss";
+
+.bkg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+    background: radial-gradient(circle at bottom, $dark -20%, $blck) fixed;
+    overflow: hidden;
+    
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+
+        background: url("../public/texture.png");
+        opacity: .2;
+    }
+    
+}

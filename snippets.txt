@@ -1,0 +1,38 @@
+
+@media (min-width: $desk) {}
+
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto Slab', serif;
+font-family: 'Yeseva One', cursive;
+
+outline: 1px dashed lightblue;
+
+// autoplay={{delay: 2800, disableOnInteraction: true,}}
+
+function useWindowDimensions() {
+    const hasWindow = typeof window !== 'undefined';
+  
+    function getWindowDimensions() {
+        const height = hasWindow ? window.innerHeight : null;
+        const width = hasWindow ? window.innerWidth : null;
+        return [height,width,];
+    }
+  
+    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+  
+    useEffect(() => {
+        if (hasWindow) {
+            function handleResize() {
+                setWindowDimensions(getWindowDimensions());
+            }
+
+            window.addEventListener('resize', handleResize);
+            return () => window.removeEventListener('resize', handleResize);
+        }
+    }, [hasWindow]);
+  
+    return windowDimensions;
+
+}
+const brk = winWidth >= 1200;
+const [winHeight, winWidth] = useWindowDimensions();

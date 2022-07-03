@@ -1,0 +1,87 @@
+
+@import "../styles/variable.scss";
+
+.navbar {
+    position: absolute; top: 0; left: 0;
+    width: 100%; 
+    z-index: 5;
+    
+    .wrap{               
+        margin: 0 auto;
+        max-width: $max+50px;
+    
+        border-bottom: $line;
+        padding: $mrgb $mrgi;
+
+        display: flex;
+        align-items:center;
+
+        .logo {
+            width: 50%;
+            font-family: newyork,'Times New Roman', Times, serif;
+            font-size: 1.2em;
+            svg {
+                margin-right: .3em;
+                transform: translateY(20%);
+            }
+        }
+        
+        nav {
+            width: 50%;
+            position: relative;
+            .links {
+                padding-top: 2px;
+
+                @media (max-width: $desk) {
+                    display: none;
+                }
+
+                a { @include link }
+            }
+
+            .menu {
+                position: absolute; top: 0; right: 0;
+                margin-right: $mrgi;
+                cursor: pointer;
+                // background-color: cadetblue;
+
+                .menubtn {
+                    height: .7rem;
+                    width: 2.5rem;
+                    position: relative;
+                    
+                    .line {
+                        position: absolute;
+                        height: .15em;
+                        background-color: rgba($lght, .8);
+                        border-radius: 99px;
+                        transition: .5s;
+
+                        
+                        &:first-child {
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            
+                        }
+                        &:last-child {
+                            top: 100%;
+                            right: 0;
+                            width: 70%;
+
+                        }
+                        
+                    }
+                }
+                &:hover .menubtn .line {
+                    width: 100%;
+                }
+
+                
+            }
+        }
+
+    }
+
+}
+

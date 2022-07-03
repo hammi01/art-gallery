@@ -1,0 +1,75 @@
+
+@import "../styles/variable.scss";
+
+.scroll {
+    position: absolute; bottom: $mrgb; right: 0;
+    font-weight: 600;
+    line-height: 1.5;
+    opacity: .7;
+
+    .track {
+        display: inline-block;
+        animation: trackAnim 3s infinite;
+
+        .button {
+            position: relative;
+            display: inline-block;
+            height: 30px;
+            width: 20px;
+            margin-left: 1vmin;
+            border: 3px solid rgba($dark, .8);
+            border-radius: 20px;
+            transform: scale(.6) translateY(50%);
+            
+            @media (min-width: $desk) {
+                transform: scale(.8) translateY(35%);
+            }
+
+            &::before{
+                content: '';
+                height: 8px;
+                width: 8px;
+                position: absolute;
+                top: 4px;
+                left: 3px;
+                
+                border-radius: 50%;
+                background-color: $dark;
+                animation: scrollAnim 3s infinite;
+            }
+
+        }
+    }
+
+    @keyframes scrollAnim {
+        0% {
+            opacity: 0;
+            transform: translate(0, 0);
+        }
+        40%{
+            opacity: 1;
+        }
+        80% {
+            opacity: 0;
+            transform: translate(0, 10px);
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes trackAnim {
+        0% {
+            transform: translateY(-2%);
+            opacity: 1;
+        }
+        70% {
+            transform: translateY(5%);
+            opacity: .6;
+        }
+        100% {
+            transform: translateY(-2%);
+            opacity: 1;
+        }
+    }
+}

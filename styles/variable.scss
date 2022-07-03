@@ -1,0 +1,169 @@
+// @supports (-webkit-background-clip: text) {
+//     background: url("../public/noise.png") $lght;
+//     -webkit-text-fill-color: transparent;
+//     -webkit-background-clip: text;
+// }
+
+// $cardoverlay: inset 0 0 10px 2000px rgba($lght, 0.2);
+
+// display: flow-root;
+
+//################# DIMENSIONS
+$mrgi: 3.5vw;
+$mrgb: 5vmin;
+$max: 1600px;
+
+
+//################# COLORS
+$blck: #212123;
+$dark: #322424;
+$lght: #e3e0d7;
+$accn: #fed18d;
+
+//################# TYPE
+@font-face {
+    font-family: newyork;
+    src: url(../public/font/NewYork.otf);
+}
+@font-face {
+    font-family: gilroy;
+    src: url(../public/font/Gilroy-Bold.ttf);
+}
+@font-face {
+    font-family: gilroy-light;
+    src: url(../public/font/Gilroy-Light.otf);
+}
+@font-face {
+    font-family: montserrat;
+    src: url(../public/font/Montserrat-Italic.ttf);
+}
+
+@mixin fontSizeM {
+    @include fluidFont(14, 16);
+    font-family: montserrat, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    line-height: 1; 
+}
+@mixin fontSizeEm {
+    font-family: gilroy, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    font-size: 1.1em;
+    text-transform: capitalize;
+    }
+@mixin fontSizeL {
+    font-family: gilroy-light, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    @include fluidFont(24,44);
+    padding-bottom: .8em;
+    text-transform: capitalize;
+}
+@mixin fontSizeXl {
+    @include fluidFont(46,92);
+    font-family: newyork,Charter,Athelas,Georgia, 'Times New Roman','Droid Serif','DejaVu Serif', 'Liberation Serif',serif;
+    padding-bottom: 2vmax;
+    text-transform: capitalize;
+}
+
+//################# BREAKS
+$desk: 960px;
+
+//################# STYLING
+@mixin overlay {
+    &:after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+
+        background-color: rgba($dark, .3);
+    }
+}
+
+@mixin subtleshadow {
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 4px 12px;
+}
+
+@mixin fluidFont ($fontmin, $fontmax) {
+    $fontminpx: $fontmin + px;
+    font-size: $fontmin * 1.2 * 1px;
+    font-size: calc( $fontminpx + ($fontmax - $fontmin) * ((100vw - 300px) / (1600 - 300)));
+}
+
+@mixin glass {
+    background-color: rgba($dark, .7);
+    backdrop-filter: blur(10px);
+}
+
+$line: 1px solid rgba($lght, .3);
+
+//################# COMPONENTS
+
+@mixin link {
+    position: relative;
+    margin-right: 1.5rem;
+    
+    opacity: .5;
+    transition: .3s;
+    
+    &:hover {
+        opacity: 1;
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+@mixin button {
+    padding: 1.2em 2.5em;
+    border: $line;
+    @include fontSizeEm;
+    cursor: pointer;
+
+    span {
+        display: inline-block;
+    }
+
+    &:hover {
+        background-color: rgba($lght, .1);
+    }
+    
+}
+
+@mixin navarrows {
+    display: flex;
+    position: absolute; top: .4rem; right: 0;
+    
+    &>div {
+
+        &:first-child {
+            margin-right: 0.5em;
+            svg{transform: rotate(180deg)}
+        }
+
+        svg {
+            padding-left: 4px;
+        }
+    }
+}
+
+@mixin dash {
+    position: relative;
+    padding-left: 1.5rem;
+    &::before {
+        content: "";
+        position: absolute; top: 0; left: .5em;
+        height: .2rem;
+        width: $mrgi;
+        transform: translate(-100%, .5em);
+        background-color: rgba($lght,.5);
+    }
+}
+
+//################# ANIMATIONS
+@mixin underline {
+    &:hover::after  {
+    }
+    &::after {
+        content: "";
+    }
+    
+}
